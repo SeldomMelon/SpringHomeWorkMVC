@@ -1,7 +1,6 @@
 package ru.maxima.springmvc.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -29,13 +28,13 @@ public class PersonDAO {
     }
 
     public void save(Person person) {
-        jdbcTemplate.update("insert into person (name, age, email) values (?, ?, ?)", person.getName(),
-                person.getAge(), person.getEmail());
+        jdbcTemplate.update("insert into person (name, year) values (?, ?)", person.getName(),
+                person.getYear());
     }
 
     public void update(int id, Person updatedPerson) {
-        jdbcTemplate.update("update person set name = ? , age = ? , email = ?  where id = ?",
-                updatedPerson.getName(), updatedPerson.getAge(), updatedPerson.getEmail(), id);
+        jdbcTemplate.update("update person set name = ? , year = ? where id = ?",
+                updatedPerson.getName(), updatedPerson.getYear(), id);
     }
 
     public void delete(int id) {

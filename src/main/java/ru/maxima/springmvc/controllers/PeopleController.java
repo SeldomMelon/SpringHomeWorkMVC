@@ -14,9 +14,6 @@ import javax.validation.Valid;
 @RequestMapping("/people")
 public class PeopleController {
 
-    //PERSON - ЧЕЛОВЕК
-    //PEOPLE - ЛЮДИ
-
     private final PersonDAO personDAO;
 
     @Autowired

@@ -9,6 +9,7 @@ import ru.maxima.springmvc.dao.PersonDAO;
 import ru.maxima.springmvc.models.Person;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/people")
@@ -24,7 +25,8 @@ public class PeopleController {
     @GetMapping()
     public String index(Model model) {
         //получение всех людей из БД и пересыласть их в отображение
-        model.addAttribute("people",personDAO.index());
+        List<Person> people = personDAO.index();
+        model.addAttribute("people", people);
         return "people/index";
     }
 
@@ -32,6 +34,7 @@ public class PeopleController {
     public String show (@PathVariable("id") int id, Model model) {
         //получать конкретного человека по id
         model.addAttribute("person",personDAO.show(id));
+        model.addAttribute("user_book",personDAO.userBook(id));
         return "people/show";
     }
 

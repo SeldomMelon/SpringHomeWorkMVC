@@ -3,6 +3,7 @@ package ru.maxima.springmvc.models;
 public class Book {
 
     private int id;
+    private int personId;
 
     private String title;
 
@@ -13,8 +14,9 @@ public class Book {
     public Book() {
     }
 
-    public Book(int id, String title, String author, int age) {
+    public Book(int id, int personId, String title, String author, int age) {
         this.id = id;
+        this.personId = personId;
         this.title = title;
         this.author = author;
         this.age = age;
@@ -52,5 +54,11 @@ public class Book {
         this.age = age;
     }
 
+    public int getPersonId() {
+        return personId;
+    }
 
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
 }
